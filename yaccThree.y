@@ -51,7 +51,7 @@ lines   :       lines expr ';' { printf("%f\n", $2); }
         |
         ;
 //TODO:完善表达式的规则
-stmt    :       ID ASSIGN expr {auto iter=symFind($1);if(iter!=symTab.end()){free(iter->first);symTab.erase(iter);symTab[$1]=$3;}else{symTab[$1]=$3;}}
+stmt    :       ID ASSIGN expr {auto iter=symFind($1);if(iter!=symTab.end()){iter->second=$3;}else{symTab[$1]=$3;}}
         ;
 expr    :       expr ADD expr   { $$=$1+$3; }
         |       expr MINUS expr   { $$=$1-$3; }

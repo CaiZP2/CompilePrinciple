@@ -1179,7 +1179,7 @@ yyreduce:
 
   case 6: /* stmt: ID ASSIGN expr  */
 #line 54 "yaccThree.y"
-                               {auto iter=symFind((yyvsp[-2].str));if(iter!=symTab.end()){free(iter->first);symTab.erase(iter);symTab[(yyvsp[-2].str)]=(yyvsp[0].dbl);}else{symTab[(yyvsp[-2].str)]=(yyvsp[0].dbl);}}
+                               {auto iter=symFind((yyvsp[-2].str));if(iter!=symTab.end()){iter->second=(yyvsp[0].dbl);}else{symTab[(yyvsp[-2].str)]=(yyvsp[0].dbl);}}
 #line 1184 "yThree.tab.c"
     break;
 
